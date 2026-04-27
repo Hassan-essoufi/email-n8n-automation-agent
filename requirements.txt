@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+httpx
+
+pydantic
+pydantic-settings
+
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-api-python-client
+
+python-dotenv
+requests
+diskcache
