@@ -1,15 +1,29 @@
+# AI / LLM
+anthropic
+
+# API server
 fastapi
-uvicorn
+uvicorn[standard]
 httpx
 
+# Data models
 pydantic
 pydantic-settings
 
+# Google APIs
 google-auth
 google-auth-oauthlib
 google-auth-httplib2
 google-api-python-client
 
+# Config
 python-dotenv
+
+# HTTP
 requests
+
+# Memory / caching
 diskcache
+
+# Frontend
+streamlit
