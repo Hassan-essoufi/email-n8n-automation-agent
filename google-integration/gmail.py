@@ -2,8 +2,6 @@ from googleapiclient.discovery import build
 from auth import get_credentials
 import base64
 
-
-
 def get_gmail_service():
      
     try:
@@ -12,7 +10,7 @@ def get_gmail_service():
         return service
     
     except Exception as e:
-        raise Exception(f'[ERROR]: Credentials are invalid{e}')
+        raise Exception(f'[ERROR]: Credentials are invalid,{e}')
     
 
 def get_emails(max_results):
