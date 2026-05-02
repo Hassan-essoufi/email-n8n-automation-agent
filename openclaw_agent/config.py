@@ -10,9 +10,11 @@ class Settings(BaseSettings):
     openclaw_url: str = 'http://localhost:18789'
     openclaw_secret: str
     
+    spreadsheet_id: str
+    
     model_config= SettingsConfigDict(env_file='.env',
                                     env_file_encoding="utf-8")
     
     
-
+settings = Settings()
 
