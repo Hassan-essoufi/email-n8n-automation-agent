@@ -1,5 +1,5 @@
 from googleapiclient.discovery import build
-from auth import get_credentials
+from google_integration.auth import get_credentials
 import base64
 
 def get_gmail_service():

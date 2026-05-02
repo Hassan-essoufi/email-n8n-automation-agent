@@ -1,5 +1,5 @@
 from googleapiclient.discovery import build
-from auth import get_credentials
+from google_integration.auth import get_credentials
 
 def get_calendar_service():
     
