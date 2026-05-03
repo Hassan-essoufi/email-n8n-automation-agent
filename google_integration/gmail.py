@@ -19,7 +19,7 @@ def get_emails(max_results):
         service = get_gmail_service()
         results = service.users().messages().list(
                 userId="me",
-                labelIds=["INBOX"],
+                labelIds=["INBOX", "UNREAD"],
                 maxResults=max_results
                 ).execute()
         messages = results.get("messages", [])
@@ -40,11 +40,13 @@ def get_emails(max_results):
     
 
 def parse_email(message):
-    
+
     parsed_email = {}
     payload = message["payload"]
     headers = payload["headers"]
-    
+
+    parsed_email["email_id"] = message["id"]
+
     for h in headers:
         if h["name"] == "From":
             parsed_email["sender"] = h["value"]
@@ -57,8 +59,15 @@ def parse_email(message):
         body = base64.urlsafe_b64decode(
             payload["body"]["data"]
         ).decode("utf-8", errors="ignore")
-        parsed_email['body'] = body
+    else:
+        for part in payload.get("parts", []):
+            if part.get("mimeType") == "text/plain" and "data" in part.get("body", {}):
+                body = base64.urlsafe_b64decode(
+                    part["body"]["data"]
+                ).decode("utf-8", errors="ignore")
+                break
 
+    parsed_email["body"] = body
     return parsed_email
 
 
