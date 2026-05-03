@@ -3,7 +3,7 @@ from typing import Literal, List, Dict
 
 
 class EmailData(BaseModel):
-
+    email_id: str
     sender: str
     subject: str
     body: str
