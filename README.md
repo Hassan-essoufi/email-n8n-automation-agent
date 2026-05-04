@@ -157,3 +157,14 @@ docker-compose up --build
 - The Groq free tier has a token-per-minute (TPM) limit. Keep `max_results` low (5-10) to avoid rate limit errors.
 - The Google OAuth token is stored in `credentials/token.json`. If it expires, delete the file and restart to re-authenticate.
 - Processed emails are cached in `cache/processed_emails/`. Delete this folder to reprocess all emails.
+---
+## Author
+
+**Hassan Essoufi**
+- GitHub: [@Hassan-essoufi](https://github.com/Hassan-essoufi)
+- Email: hassanessoufi2004@gmail.com
+---
+## ⭐ Note
+
+If you find this project useful, consider giving it a star ⭐, it helps a lot!
+
