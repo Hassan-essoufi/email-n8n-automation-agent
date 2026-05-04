@@ -13,7 +13,7 @@ async def run_agent(email: EmailData):
         formatted_prompt = EMAIL_PROMPT.format(
             sender=email.sender,
             subject=email.subject,
-            body=email.body
+            body=email.body[:3000]
         )
 
         response = client.chat.completions.create(
