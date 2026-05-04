@@ -25,26 +25,13 @@ async def run_agent(email: EmailData):
         )
         text = response.choices[0].message.content.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
         result = json.loads(text)
-
-        summary_response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",  
-            messages=[
-                {
-                 "role": "user",
-                 "content": f"Summarize this email body in a short  paragraph:\n\n{email.body}"
-                }
-            ],
-            max_tokens=100,
-        )
-        email_summary = summary_response.choices[0].message.content.strip()
-
         action = result.get("action")
 
         if action == "log_to_sheets":
             sheet_row = SheetRow(
                 spreadsheet_id=settings.spreadsheet_id,
                 cell_range="Feuille 1!A:D",
-                values=[[email.sender, email.subject, email_summary]]
+                values=[[email.sender, email.subject, result.get("summary", "")]]
             )
             log_to_sheet(sheet_row=sheet_row)
 
