@@ -13,6 +13,21 @@ def get_calendar_service():
         raise Exception(f'[ERROR]; Credentials are invalid,{e}') 
     
 
+def get_events(time_min, time_max):
+    try:
+        service = get_calendar_service()
+        result = service.events().list(
+            calendarId='primary',
+            timeMin=time_min,
+            timeMax=time_max,
+            singleEvents=True,
+            orderBy='startTime'
+        ).execute()
+        return result.get('items', [])
+    except Exception as e:
+        raise Exception(f'[ERROR]:{e}')
+
+
 def create_event(summary, start, end, description):
 
     try:
