@@ -9,7 +9,7 @@ Available actions:
 - create_event: for emails that contain meetings, appointments, deadlines, or scheduled events
 
 If the action is log_to_sheets, return:
-{"action": "log_to_sheets"}
+{"action": "log_to_sheets", "summary": "1-2 sentence summary of the email body"}
 
 If the action is create_event, extract the event details from the email and return:
 {
@@ -25,7 +25,7 @@ If you cannot determine the time from the email, use tomorrow at 09:00 UTC as de
 """
 
 EMAIL_PROMPT="""
-Analyze this email and return the appropriate JSON action.
+Analyze this email, decide the action, and summarize the body in a short paragraph.
 
 From: {sender}
 Subject: {subject}
