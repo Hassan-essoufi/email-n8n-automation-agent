@@ -1,0 +1,65 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 15
+            },
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -192,
+        -64
+      ],
+      "id": "1b1b485e-0367-4bec-a639-36b6132543f8",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "url": "http://open_agent:8000/fetch?max_results=20",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        224,
+        -48
+      ],
+      "id": "4615ab65-fb0a-43c8-8f19-b418e3e34376",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "4a0a5828-58ce-4c8d-8c27-a0a8325739c9",
+  "meta": {
+    "instanceId": "399171534353fb95b024f9d6b584d9b9fdf6d1ae78ed925ade697c6ab1fc24fc"
+  },
+  "id": "NySISNkV3IbBWQiD",
+  "tags": []
+}
