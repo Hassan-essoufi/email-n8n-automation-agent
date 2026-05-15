@@ -1,4 +1,4 @@
-# Email Automation Agent
+# Email Automation Agent Version 1.0.0 (full code)
 
 An intelligent email automation system that reads Gmail inbox emails, classifies them using an LLM, logs general emails to Google Sheets, and creates Google Calendar events for meeting-related emails. The system runs as a Dockerized FastAPI service with an n8n workflow for scheduled automation and a web dashboard for monitoring.
 
